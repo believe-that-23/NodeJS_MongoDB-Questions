@@ -9,7 +9,7 @@ export default class ExpenseController {
   // Create new expense
   add = async (req, res) => {
     const { title, amount, date, isRecurring, tags } = req.body;
-    console.log(req.body);
+
     const expenseToCreate = new ExpenseModel(
       title,
       amount,
@@ -29,7 +29,6 @@ export default class ExpenseController {
   // Get a specific expense
   getOne = async (req, res) => {
     const { id } = req.params;
-    console.log(req.params);
     try {
       const expense = await this.expenseRepository.getOne(id);
 
@@ -58,8 +57,6 @@ export default class ExpenseController {
     const { id } = req.params;
     const { tag } = req.body;
 
-    console.log(tag);
-
     try {
       await this.expenseRepository.addTagToExpense(id, tag);
       res.status(200).send("Tag added successfully.");
@@ -80,14 +77,29 @@ export default class ExpenseController {
     }
   };
 
-  // above is previous code
+  // -----------Above is previous code-------------
 
   // Update an expense's tag
-  updateTag = async (req, res) => { };
+  updateTag = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { oldTag, newTag } = req.body;
+      await this.expenseRepository.updateTagInExpense(id, oldTag, newTag);
+      res.status(200).send("Tag updated successfully.");
+    } catch (error) {
+      res.status(500).send("Error updating tag.");
+    }
+  };
 
   // Delete a tag from an expense
-  deleteTag = async (req, res) => { };
+  deleteTag = async (req, res) => {
+    try {
+      const { id, tag } = req.params;
+      await this.expenseRepository.deleteTagFromExpense(id, tag);
+      res.status(200).send("Tag deleted successfully.");
+    } catch (error) {
+      res.status(500).send("Error deleting tag.");
+    }
+  };
+
 }
-
-
-

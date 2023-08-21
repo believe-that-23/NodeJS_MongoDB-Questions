@@ -30,7 +30,7 @@ router.post("/:id/tags", (req, res) => {
   expenseController.addTag(req, res);
 });
 
-// ----------Above is previous code---------------
+// -----------Above is previous code-------------
 
 // Route to update a tag within a specific expense
 router.patch("/:id/tags", (req, res) => {
