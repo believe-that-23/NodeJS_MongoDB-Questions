@@ -1,4 +1,4 @@
-### Title
+## Title
 
 Expense Tracking App Enhancement
 
@@ -31,3 +31,4 @@ Refer to MongoDB and Node.js documentation for guidance on using the pull operat
 1. Consider the structure of the existing expenses and tags in the database.
 2. Research how to apply the pull operator to update or delete specific elements within an array.
 3. Ensure a seamless user experience while handling tag updates and deletions.
+4. You only need to focus on updating and deleting tags in this exercise. No need to change any other code except for the update and delete routes.
