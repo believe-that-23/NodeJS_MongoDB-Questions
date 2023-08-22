@@ -1,6 +1,6 @@
 ## Title: Aggregating Expense Data with MongoDB
 
-Introduction + Scenario:
+### Introduction + Scenario:
 You are tasked with developing a feature for an expense tracking application. The application has existing routes and controllers for managing expenses, including creating, retrieving, updating, and deleting expenses. Your objective is to enhance the application's functionality by implementing MongoDB aggregation operators to provide valuable insights into the expense data. This will allow users to perform various analyses on their expenses, such as calculating total expenses for each product, grouping expenses by specific criteria, and more.
 
 ### Objectives:
