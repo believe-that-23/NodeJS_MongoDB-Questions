@@ -48,7 +48,7 @@ beforeAll(async () => {
     .post("/api/expenses")
     .send(seededExpense);
 });
-describe("Testing update and delete routes", () => {
+describe("Testing aggregation routes", () => {
 
   it("aggregates total revenue for each product", async () => {
     const response = await request(app).get("/api/expenses/aggregate/total-revenue");
