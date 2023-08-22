@@ -13,6 +13,9 @@ You are tasked with developing a feature for an expense tracking application. Th
 Upon successful completion, users should be able to query the application's endpoints to retrieve aggregated expense data based on various criteria. This may include calculated totals, grouped results, and customized analyses.
 
 ### Requirements:
+
+Output should look like https://files.codingninjas.in/14_2-30252.gif
+
 1. Ensure you have the MongoDB database connection properly configured.
 2. Use the provided controller, model, repository, and routes files to build upon.
 
