@@ -23,7 +23,8 @@ Developers should modify specific functions within the controller and repository
 - Developers should focus on the provided routes that involve complex operations and modify those routes to handle transactions effectively.
 - Use the `session.withTransaction()` method to encapsulate multiple operations within a single transaction.
 
-### Note: The provided code is representative of the problem context. The solution should guide developers to enhance specific functions and files for transaction handling as described.
+### Note: 
+The provided code is representative of the problem context. The solution should guide developers to enhance specific functions and files for transaction handling as described.
 
 ### Additional Notes:
 - The provided code includes the existing structure of the application, including the `ExpenseModel`, `ExpenseRepository`, and `ExpenseController` classes.
