@@ -40,10 +40,6 @@ router.delete("/:id/tags/:tag", (req, res) => {
   expenseController.deleteTag(req, res);
 });
 
-
-// -----------Above is previous code-------------
-
-
 // Route to aggregate total revenue for each product
 router.get("/aggregate/total-revenue", (req, res) => {
   expenseController.aggregateTotalRevenue(req, res);
@@ -57,6 +53,14 @@ router.get("/group/by-tags", (req, res) => {
 // Route to group and calculate average by recurring status
 router.get("/group/avg-by-recurring", (req, res) => {
   expenseController.groupAndCalculateAvgByRecurring(req, res);
+});
+
+
+// -----------Above is previous code-------------
+
+// Transactional route: Add expense and update tag within a single transaction
+router.post("/add-and-update-with-transaction", (req, res) => {
+  expenseController.addExpenseAndUpdateTagTransaction(req, res);
 });
 
 export default router;

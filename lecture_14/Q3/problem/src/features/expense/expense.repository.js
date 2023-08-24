@@ -86,7 +86,6 @@ class ExpenseRepository {
 
   }
 
-  // -----------Above is previous code-------------
 
   // Aggregate total revenue for each product
   async aggregateTotalRevenue() {
@@ -132,6 +131,31 @@ class ExpenseRepository {
     const result = await db.collection(this.collectionName).aggregate(pipeline).toArray();
     return result;
   }
+
+  async addExpenseWithTransaction(expense, session) {
+    const db = getDB();
+    await db.collection(this.collectionName).insertOne(expense, { session });
+    return expense;
+  }
+
+  // Transactional version: Update a tag in an expense with transaction
+  async updateTagInExpenseWithTransaction(id, oldTag, newTag, session) {
+    const db = getDB();
+    const filter = { _id: new ObjectId(id), tags: oldTag };
+    const update = { $set: { "tags.$": newTag } };
+    const expenses = await db.collection(this.collectionName).updateOne(filter, update, { session });
+    return expenses;
+  }
+
+
+  // -----------Above is previous code-------------
+
+  // Transactional method: Add expense with transaction
+  async addExpenseWithTransaction(expense, session) { }
+
+  // Transactional method: Update a tag in an expense with transaction
+  async updateTagInExpenseWithTransaction(id, oldTag, newTag, session) { }
+
 }
 
 export default ExpenseRepository;

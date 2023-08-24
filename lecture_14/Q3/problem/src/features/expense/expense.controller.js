@@ -100,8 +100,6 @@ export default class ExpenseController {
     }
   };
 
-  // -----------Above is previous code-------------
-
   // Aggregate total revenue for each product
   aggregateTotalRevenue = async (req, res) => {
     try {
@@ -129,6 +127,32 @@ export default class ExpenseController {
       res.status(200).send(result);
     } catch (error) {
       res.status(500).send("Error grouping and calculating average by recurring status.");
+    }
+  };
+
+  // -----------Above is previous code-------------
+
+
+  // Complete the implementation of the addExpenseAndUpdateTagTransaction method to achieve the following:
+  // 1. Extract the values for adding an expense from the addParams object, including title, amount, date, isRecurring, and tags.
+  // 2. Extract the newTag and oldTag values from the updateParams object.
+  // 3. Implement the necessary code to add the expense and update the tag within a single transaction.
+  // 4. Handle any potential errors that may occur during the transactional operations.
+
+  addExpenseAndUpdateTagTransaction = async (req, res) => {
+    const { addParams, updateParams } = req.body;
+
+    const { title, amount, date, isRecurring, tags } = addParams;
+    const newTag = updateParams.newTag;
+    const oldTag = updateParams.oldTag;
+
+    try {
+
+      res.status(201).send("Expense added and tag updated successfully within a transaction.");
+    } catch (err) {
+
+      console.log(err);
+      res.status(500).send("Error performing operations within a transaction.");
     }
   };
 

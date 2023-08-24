@@ -1,31 +1,26 @@
-## Title: Enhancing Transaction Handling in MongoDB Application
+## Title:
+Enhancing Expense App with Transactional Operations
 
 ### Introduction + Scenario:
-You are working on a MongoDB application that manages expenses. The application already includes basic functionality to create, retrieve, update, and delete expenses. Your task is to empower developers by enabling them to implement transactional features within the provided codebase. Specifically, developers should focus on enhancing the provided routes to handle transactions effectively. This feature will contribute to the application's robustness, ensuring data consistency and integrity during complex operations.
+In the dynamic landscape of application development, incorporating robust data management techniques is of paramount importance. This challenge revolves around refining an existing expense management application. As you continue to develop this app, it becomes crucial to integrate the ability to execute multiple operations as a single transaction. Imagine you are a part of a team working on an expense app where users can add expenses and update tags. To ensure the consistency of financial records, it's imperative to enable users to perform both actions within a single transaction.
 
 ### Objectives:
-1. Allow developers to enhance specific routes in the `controller` and `repository` files to implement transactions.
-2. Enable the execution of multiple operations as a single transaction for improved data integrity.
-3. Ensure that the application gracefully handles transaction errors and maintains data consistency.
+Your objective is to extend the capabilities of the expense app by implementing a transactional feature. The task at hand is to create a function that allows users to add an expense and update a tag simultaneously. This feature guarantees that if one of these operations fails, the entire transaction will be rolled back, ensuring the integrity of the data.
 
-**Expected Output:**
-Developers should modify specific functions within the controller and repository files to implement transactional features for particular routes. Upon implementation, the application should execute the operations within a single transaction, ensuring atomicity. In case of any transaction errors, the application should roll back changes to maintain data consistency.
+### Expected Output:
+Upon successful implementation, the function should indicate that an expense has been added, and the associated tag has been updated, all within a single transaction. In case an error occurs during the transaction, the function should provide an appropriate error message.
 
 ### Requirements:
-- Developers should use the existing `ExpenseModel`, `ExpenseRepository`, and `ExpenseController` classes for this implementation.
-- Modify the `controller` and `repository` files to incorporate the `session.withTransaction()` method for transaction handling.
-- Clear code comments should guide developers on where and how to implement transactions within the codebase.
+
+Utilize the provided function signature to incorporate the transactional functionality.
+Apply the principles of database transactions to ensure the atomicity of the operations.
 
 ### Resources:
-- MongoDB documentation on transactions: [link](https://docs.mongodb.com/manual/core/transactions/)
+
+Reference MongoDB documentation for insights into transactions and related operations.
 
 ### Notes/Hints:
-- Developers should focus on the provided routes that involve complex operations and modify those routes to handle transactions effectively.
-- Use the `session.withTransaction()` method to encapsulate multiple operations within a single transaction.
 
-### Note: 
-The provided code is representative of the problem context. The solution should guide developers to enhance specific functions and files for transaction handling as described.
-
-### Additional Notes:
-- The provided code includes the existing structure of the application, including the `ExpenseModel`, `ExpenseRepository`, and `ExpenseController` classes.
-- Developers should concentrate on updating the mentioned functions in the `controller` and `repository` files to implement transactional features within the specified routes.
+Familiarize yourself with the existing codebase to comprehend the interaction with the database.
+Embrace the concept of atomicity within transactions and comprehend its role.
+Remember that the essence of transactional operations is the all-or-nothing principle, upholding the consistency of data.
