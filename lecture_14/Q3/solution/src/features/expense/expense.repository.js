@@ -1,5 +1,6 @@
-import { getDB } from "../../config/mongodb.js";
+import { getClient, getDB } from "../../config/mongodb.js";
 import { ObjectId } from "mongodb";
+import ExpenseModel from "./expense.model.js";
 
 class ExpenseRepository {
   constructor() {
@@ -150,19 +151,38 @@ class ExpenseRepository {
 
   // -----------Above is previous code-------------
 
-  // Transactional method: Add expense with transaction
-  async addExpenseWithTransaction(expense, session) {
-    const db = getDB();
-    await db.collection(this.collectionName).insertOne(expense, { session });
-    return expense;
-  }
+  async addExpenseAndUpdateTagTransaction(addParams, updateParams) {
+    const { title, amount, date, isRecurring, tags } = addParams;
+    const newTag = updateParams.newTag;
+    const oldTag = updateParams.oldTag;
 
-  // Transactional method: Update a tag in an expense with transaction
-  async updateTagInExpenseWithTransaction(id, oldTag, newTag, session) {
-    const db = getDB();
-    const filter = { _id: new ObjectId(id), tags: oldTag };
-    const update = { $set: { "tags.$": newTag } };
-    await db.collection(this.collectionName).updateOne(filter, update, { session });
+    const expenseToCreate = new ExpenseModel(
+      title,
+      amount,
+      date,
+      isRecurring,
+      tags
+    );
+
+    const client = getClient();
+    const session = client.startSession();
+
+    try {
+      session.startTransaction();
+      await this.addExpenseWithTransaction(expenseToCreate, session);
+
+      const { id } = expenseToCreate;
+      await this.updateTagInExpenseWithTransaction(id, oldTag, newTag, session);
+
+      await session.commitTransaction();
+      session.endSession();
+    } catch (err) {
+      await session.abortTransaction();
+      session.endSession();
+      throw err;
+    } finally {
+      client.close();
+    }
   }
 
 }

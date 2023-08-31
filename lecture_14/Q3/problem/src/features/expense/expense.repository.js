@@ -151,10 +151,35 @@ class ExpenseRepository {
   // -----------Above is previous code-------------
 
   // Transactional method: Add expense with transaction
-  async addExpenseWithTransaction(expense, session) { }
+  
+  // Here are the two methods that we want to wrap around within transaction
+  // Your task is to complete the transaction logic 
+  
+  async addExpenseAndUpdateTagTransaction(addParams, updateParams) {
+    const { title, amount, date, isRecurring, tags } = addParams;
+    const newTag = updateParams.newTag;
+    const oldTag = updateParams.oldTag;
 
-  // Transactional method: Update a tag in an expense with transaction
-  async updateTagInExpenseWithTransaction(id, oldTag, newTag, session) { }
+    const expenseToCreate = new ExpenseModel(
+      title,
+      amount,
+      date,
+      isRecurring,
+      tags
+    );
+
+    try {
+      await this.addExpenseWithTransaction(expenseToCreate, session);
+
+      const { id } = expenseToCreate;
+      await this.updateTagInExpenseWithTransaction(id, oldTag, newTag, session);
+
+    } catch (err) {
+
+    } finally {
+
+    }
+  } 
 
 }
 

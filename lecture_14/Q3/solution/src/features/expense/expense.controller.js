@@ -142,46 +142,13 @@ export default class ExpenseController {
 
   addExpenseAndUpdateTagTransaction = async (req, res) => {
     const { addParams, updateParams } = req.body;
-
-    const { title, amount, date, isRecurring, tags } = addParams;
-    const newTag = updateParams.newTag;
-    const oldTag = updateParams.oldTag;
-
-    const expenseToCreate = new ExpenseModel(
-      title,
-      amount,
-      date,
-      isRecurring,
-      tags
-    );
-
-    const client = getClient();
-    console.log(client);
-    const session = client.startSession(); // Start a session
-    // console.log(session);
-    
     try {
-      session.startTransaction();
-      // Add expense with transaction
-      await this.expenseRepository.addExpenseWithTransaction(expenseToCreate, session);
-
-      // Update tag with transaction
-      const { id } = expenseToCreate;
-      await this.expenseRepository.updateTagInExpenseWithTransaction(id, oldTag, newTag, session);
-
-      await session.commitTransaction();
-      session.endSession();
+      await this.expenseRepository.addExpenseAndUpdateTagTransaction(addParams, updateParams);
       res.status(201).send("Expense added and tag updated successfully within a transaction.");
     } catch (err) {
-      await session.abortTransaction();
-      session.endSession();
       console.log(err);
       res.status(500).send("Error performing operations within a transaction.");
-    } finally {
-      // Close the connection after the transaction
-      client.close();
     }
-
   };
 
 }
