@@ -50,7 +50,7 @@ class studentRepository {
                 $match: {
                     age: { $gt: 9 },
                     grade: { $lte: 'B' },
-                    'assignments.title': { $in: ['math'] },
+                    'assignments.title': { $in: ['Math'] },
                     'assignments.score': { $gte: 60 }
                 }
             },
@@ -72,7 +72,7 @@ class studentRepository {
 
         try {
             session.startTransaction();
-            const student = await db.collection(collectionName).findOne({ _id: studentId });
+            const student = await db.collection(collectionName).findOne({ _id: studentId }, { session });
             console.log(student);
             if (!student) {
                 throw new Error('Student not found.');
@@ -89,7 +89,8 @@ class studentRepository {
             // Update student's assignments with extra credit
             await db.collection(collectionName).updateOne(
                 { _id: studentId },
-                { $set: { assignments: updatedAssignments } }
+                { $set: { assignments: updatedAssignments } },
+                { session }
             );
 
             await session.commitTransaction();

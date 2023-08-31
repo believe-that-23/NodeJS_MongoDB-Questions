@@ -17,7 +17,7 @@ Your task is to update the studentRepository class to implement the following me
 
 ### Expected Output: 
 
-Output should look like: 
+Output should look like: https://files.codingninjas.in/14_4-30632.gif
 
 Participants should modify the studentRepository class to incorporate the provided methods according to the given specifications. The methods should interact with the database as outlined and produce the intended outcomes.
 
