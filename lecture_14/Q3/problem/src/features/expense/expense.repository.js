@@ -1,3 +1,5 @@
+// Don't change the previous code
+
 import { getDB } from "../../config/mongodb.js";
 import { ObjectId } from "mongodb";
 
@@ -5,6 +7,8 @@ class ExpenseRepository {
   constructor() {
     this.collectionName = "expenses"; // name of the collection in mongodb
   }
+
+  //-------------------previous code starts---------------------
 
   // Create a new expense
   async addExpense(expense) {
@@ -147,12 +151,13 @@ class ExpenseRepository {
     return expenses;
   }
 
+  //--------------------previous code ends----------------------
 
-  // -----------Above is previous code-------------
+  // Do the changes below only
 
   // Transactional method: Add expense with transaction
   
-  // Here are the two methods that we want to wrap around within transaction
+  // Here are the two database queries that we want to wrap around the transaction
   // Your task is to complete the transaction logic 
   
   async addExpenseAndUpdateTagTransaction(addParams, updateParams) {

@@ -1,3 +1,5 @@
+// Don't change the previous code
+
 import ExpenseModel from "./expense.model.js";
 import ExpenseRepository from "./expense.repository.js";
 
@@ -5,6 +7,8 @@ export default class ExpenseController {
   constructor() {
     this.expenseRepository = new ExpenseRepository();
   }
+
+  //-----------previous code starts--------------------------
 
   // Create new expense
   add = async (req, res) => {
@@ -80,7 +84,9 @@ export default class ExpenseController {
     }
   };
 
-  // above is previous code
+  //------------------previous code ends------------------------
+
+  // Only change the below functions
 
   // Update an expense's tag
   updateTag = async (req, res) => { };

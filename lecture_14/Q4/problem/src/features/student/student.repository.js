@@ -1,3 +1,4 @@
+//No need to change code other than the last four methods
 import { getClient, getDB } from '../../config/mongodb.js';
 
 const collectionName = 'students';
@@ -16,7 +17,8 @@ class studentRepository {
         return students;
     }
 
-    //You need to complete methods provided below:
+
+    //You need to implement methods below:
 
     async createIndexes() {}
 

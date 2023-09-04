@@ -1,3 +1,5 @@
+//No need to change the previous code
+
 import { getDB } from "../../config/mongodb.js";
 import { ObjectId } from "mongodb";
 
@@ -5,6 +7,8 @@ class ExpenseRepository {
   constructor() {
     this.collectionName = "expenses"; // name of the collection in mongodb
   }
+
+  //----------------previous code starts------------------------
 
   // Create a new expense
   async addExpense(expense) {
@@ -87,7 +91,9 @@ class ExpenseRepository {
 
   }
 
-  // -----------Above is previous code-------------
+  //------------------previous code ends------------------------
+
+  // Only change the below functions
 
   // Aggregate total revenue for each product
   async aggregateTotalRevenue() { }

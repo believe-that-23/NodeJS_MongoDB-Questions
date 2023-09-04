@@ -36,11 +36,10 @@ Create an aggregation stage that groups expenses by their "tags" field. Return t
 3. Filter and Group by Recurring Status:
 Implement an aggregation stage that groups expenses by their "isRecurring" status (true or false). For each group, calculate the total count of expenses and their average amount.
 
-Your solution should incorporate the provided controller, model, repository, and routes files to seamlessly integrate the aggregation operations with the existing application structure.
 
 ### Notes/Hints:
+- No need to change the default code, changes are meant to be done in repository file only.
 - Remember to use the MongoDB aggregation pipeline and relevant stages to achieve the desired results.
 - Check the MongoDB documentation for specific syntax and usage of aggregation operators.
 - Test your solution thoroughly with different data scenarios to ensure accurate and reliable results.
 
-Feel free to refer to the provided code files while implementing the aggregation operators and stages in your solution. Good luck!

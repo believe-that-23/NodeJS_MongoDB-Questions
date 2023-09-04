@@ -25,4 +25,5 @@ Participants should modify the studentRepository class to incorporate the provid
  Utilize the provided MongoDB utility functions (getClient and getDB) for database connectivity. For the createIndexes method, create a single-field index on the 'name' field in ascending order and a compound index on the 'age' field in ascending order and the 'grade' field in descending order.
 
 ### Notes/Hints: 
-Consider using MongoDB aggregation pipeline operations for advanced querying. Refer to the provided code for hints on interacting with the database and calculating updated scores.
+- Do not change the previous code.
+- Changes are meant to be done only in repository file.
