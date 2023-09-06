@@ -11,6 +11,8 @@ Your objective is to extend the capabilities of the expense app by implementing 
 
 ### Expected Output:
 
+Output should look like: https://files.codingninjas.in/ques2-30776.gif
+
 Upon successful implementation, the function should indicate that an expense has been added, and the associated tag has been updated, all within a single transaction. In case an error occurs during the transaction, the function should provide an appropriate error message.
 
 ### Requirements:
