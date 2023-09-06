@@ -1,4 +1,4 @@
-//Don't change the previous code
+//Don't change the prewritten code
 
 import { getDB } from "../../config/mongodb.js";
 import { ObjectId } from "mongodb";
@@ -8,7 +8,7 @@ class ExpenseRepository {
     this.collectionName = "expenses"; // name of the collection in mongodb
   }
 
-  //-----------------Previous code starts----------------------
+  //-----------------Prewritten code starts----------------------
 
   // Create a new expense
   async addExpense(expense) {
@@ -71,7 +71,7 @@ class ExpenseRepository {
     return expenses;
   }
 
-  //----------------previous code ends--------------------------
+  //----------------prewritten code ends--------------------------
 
   // Change below functions only
 

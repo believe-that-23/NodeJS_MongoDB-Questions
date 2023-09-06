@@ -14,13 +14,10 @@ Imagine you're working on an expense tracking app. Currently, the app allows add
 
 ### Expected Output
 
-Output should look like: https://files.codingninjas.in/question-30118.gif
+Output should look like: https://files.codingninjas.in/question-30756.gif 
 
 Enhance the expense tracking app to enable users to update and delete tags for expenses. Utilize MongoDB and Node.js to achieve this functionality, ensuring smooth modification and removal of tags using the pull operator.
 
-### Requirements
-
-Utilize MongoDB and Node.js for implementation. Emphasize the use of the pull operator to manipulate tags efficiently.
 
 ### Resources
 
@@ -31,4 +28,4 @@ Refer to MongoDB and Node.js documentation for guidance on using the pull operat
 1. Consider the structure of the existing expenses and tags in the database.
 2. Research how to apply the pull operator to update or delete specific elements within an array.
 3. Ensure a seamless user experience while handling tag updates and deletions.
-4. You only need to make changes in repository and controller files. No need to change the previous code.
+4. You only need to make changes in repository and controller files. No need to change the prewritten code.
