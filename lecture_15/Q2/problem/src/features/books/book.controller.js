@@ -7,8 +7,11 @@ export default class BookController {
     }
 
     //------change code in below functions only--------
+
+    // creation of book
     createBook = async (req, res) => { }
 
+    // filtering of book by id
     getOne = async (req, res) => { }
 
 }

@@ -7,6 +7,7 @@ export default class BookController {
         this.bookRepository = new BookRepository();
     }
 
+    //book creation
     createBook = async (req, res) => {
 
         const { title, author, genre, copies, availableCopies } = req.body;
@@ -27,6 +28,7 @@ export default class BookController {
 
     }
 
+    //filtering the book by id
     getOne = async (req, res) => {
         const { bookId } = req.params;
         console.log(bookId);
@@ -47,11 +49,14 @@ export default class BookController {
     //---------------pre-written code ends-----------------
 
     // Complete the functions below:
-    
+
+    //filtering the books based on genre
     listBookByGenre = async (req, res) => { }
 
+    //increasing the count of available books
     updateBookAvailability = async (req, res) => { }
 
+    //deletion of book
     deleteBook = async (req, res) => { }
 
 }

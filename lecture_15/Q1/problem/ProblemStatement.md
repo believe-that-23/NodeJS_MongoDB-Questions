@@ -5,7 +5,7 @@ MongoDB Schema Validation with Mongoose
 You are tasked with implementing MongoDB schema validation using Mongoose, a widely used Node.js library for MongoDB. Imagine you are building a library management system, and you need to define the schema for books in your database. Your task is to create a Mongoose schema for books and establish a successful connection to MongoDB.
 
 ## Objectives:
-1. Establish a MongoDB connection using Mongoose to a local database at "mongodb://localhost:27017".
+1. Establish a MongoDB connection in the "mongooseConfig.js" using Mongoose to a local database at "mongodb://localhost:27017".
 
 2. Create a Mongoose schema named bookSchema for books based on a configuration object. The configuration object should include information about the fields and their constraints. Your schema should include the following fields:
 

@@ -6,8 +6,9 @@ You are tasked with building a RESTful API for managing books using Mongoose and
 
 ## Objectives:
 
-1. Implement a function to create a new book with the attributes of title, author, genre, copies, and available copies.
-2. Develop an endpoint to retrieve book details by providing a book ID.
+1. Create a model, using the "bookSchema".
+2. Implement a function to create a new book with the attributes of title, author, genre, copies, and available copies.
+3. Develop an endpoint to retrieve book details by providing a book ID.
 
 ## Expected Output:
 
