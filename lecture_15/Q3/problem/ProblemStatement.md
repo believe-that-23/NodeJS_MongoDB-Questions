@@ -12,7 +12,7 @@ In this coding challenge, you are tasked with building a Book Inventory Manageme
 
 ## Expected Output:
 
-Output should look like: 
+Output should look like: https://files.codingninjas.in/screencast-from-09-13-2023-04-21-29-pm-31079.webm 
 
 - Updating book availability should return the updated book details in JSON format.
 - Deleting a book should result in a JSON response confirming the deletion.

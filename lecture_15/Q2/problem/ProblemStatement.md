@@ -12,7 +12,7 @@ You are tasked with building a RESTful API for managing books using Mongoose and
 
 ## Expected Output:
 
-Output should look like: 
+Output should look like: https://files.codingninjas.in/fina-31065.mp4
 
 ## Notes/Hints:
 
