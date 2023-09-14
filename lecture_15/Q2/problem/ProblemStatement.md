@@ -16,6 +16,6 @@ Output should look like: https://files.codingninjas.in/fina-31065.mp4
 
 ## Notes/Hints:
 
-Ensure proper error messages and status codes are used for error responses.
-Make sure to handle cases where a book with a given ID does not exist.
-No need to change the pre-written code.
+1. Ensure proper error messages and status codes are used for error responses.
+2. Make sure to handle cases where a book with a given ID does not exist.
+3. No need to change the pre-written code.
