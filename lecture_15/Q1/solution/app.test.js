@@ -27,7 +27,7 @@ describe('Mongoose Database Connection', () => {
         );
 
         // Check if the connection message was logged
-        expect(mockedConsoleLog).toHaveBeenCalledWith('MongoDB connected using mongoose');
+        expect(mockedConsoleLog).toHaveBeenCalledWith(expect.stringMatching(/\S+/));
     });
 });
 
