@@ -28,6 +28,6 @@ Make sure to handle any potential errors that may occur during the MongoDB conne
 Mongoose documentation: https://mongoosejs.com/
 
 ## Notes/Hints:
-No need to change prewritten code.
-You can pass a configuration object to define your schema fields and constraints.
-Pay close attention to the field types, requirements, and constraints specified in the objectives. Use the Mongoose documentation for reference.
+1. No need to change prewritten code.
+2. You can pass a configuration object to define your schema fields and constraints.
+2. Pay close attention to the field types, requirements, and constraints specified in the objectives.
