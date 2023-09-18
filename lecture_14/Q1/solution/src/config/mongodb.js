@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const url = "mongodb://localhost:27017";
+const url = "mongodb://127.0.0.1:27017";
 
 let client;
 export const connectToMongoDB = () => {
