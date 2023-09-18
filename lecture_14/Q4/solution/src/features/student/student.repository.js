@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import { getClient, getDB } from '../../config/mongodb.js';
 
 const collectionName = 'students';
@@ -64,21 +65,59 @@ class studentRepository {
 
     }
 
-    async awardExtraCredit(studentId, extraCreditPoints) {
+    // async awardExtraCredit(studentId, extraCreditPoints) {
+    //     const db = getDB();
+    //     const client = getClient();
+    //     // console.log(client);
+    //     const session = client.startSession();
+
+    //     try {
+    //         session.startTransaction();
+    //         const student = await db.collection(collectionName).findOne({ _id: studentId }, { session });
+    //         console.log(student);
+    //         if (!student) {
+    //             throw new Error('Student not found.');
+    //         }
+
+    //         // Calculate new score based on extra credit points
+    //         const updatedAssignments = student.assignments.map(assignment => {
+    //             return {
+    //                 ...assignment,
+    //                 score: assignment.score + extraCreditPoints
+    //             };
+    //         });
+
+    //         // Update student's assignments with extra credit
+    //         await db.collection(collectionName).updateOne(
+    //             { _id: studentId },
+    //             { $set: { assignments: updatedAssignments } },
+    //             { session }
+    //         );
+
+    //         await session.commitTransaction();
+    //         session.endSession();
+    //     } catch (error) {
+    //         await session.abortTransaction();
+    //         session.endSession();
+    //         throw error;
+    //     } finally {
+    //         client.close();
+    //     }
+    // }
+    // Updated method to update student's grade based on assignment scores with atomic transaction
+    async updateStudentGrade(studentId, extraCreditPoints) {
         const db = getDB();
         const client = getClient();
-        // console.log(client);
         const session = client.startSession();
 
         try {
             session.startTransaction();
-            const student = await db.collection(collectionName).findOne({ _id: studentId }, { session });
-            console.log(student);
+            const student = await db.collection(collectionName).findOne({ _id: new ObjectId(studentId) }, { session });
             if (!student) {
                 throw new Error('Student not found.');
             }
 
-            // Calculate new score based on extra credit points
+            // Calculate new scores and grade
             const updatedAssignments = student.assignments.map(assignment => {
                 return {
                     ...assignment,
@@ -86,10 +125,27 @@ class studentRepository {
                 };
             });
 
-            // Update student's assignments with extra credit
+            // Calculate the new grade based on the updated assignments
+            const totalScore = updatedAssignments.reduce((sum, assignment) => sum + assignment.score, 0);
+            const averageScore = totalScore / updatedAssignments.length;
+
+            let updatedGrade = 'A';
+            if (averageScore >= 90) {
+                updatedGrade = 'A';
+            } else if (averageScore >= 80) {
+                updatedGrade = 'B';
+            } else if (averageScore >= 70) {
+                updatedGrade = 'C';
+            } else if (averageScore >= 60) {
+                updatedGrade = 'D';
+            } else {
+                updatedGrade = 'F';
+            }
+
+            // Perform both updates in a single transaction
             await db.collection(collectionName).updateOne(
-                { _id: studentId },
-                { $set: { assignments: updatedAssignments } },
+                { _id: new ObjectId(studentId) },
+                { $set: { assignments: updatedAssignments, grade: updatedGrade } },
                 { session }
             );
 
@@ -103,6 +159,7 @@ class studentRepository {
             client.close();
         }
     }
+
 
 };
 

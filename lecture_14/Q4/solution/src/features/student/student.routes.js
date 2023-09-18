@@ -28,10 +28,13 @@ router.get('/qualified-students-count', (req, res) => {
     studentController.getQualifiedStudentsCount(req, res);
 });
 
-// Award extra credit
-router.post('/award-extra-credit', (req, res) => {
-    studentController.awardExtraCredit(req, res);
-});
+// router.post('/award-extra-credit', (req, res) => {
+//     studentController.awardExtraCredit(req, res);
+// });
 
+// route to update student grade
+router.post('/update-student-grade', (req, res) => {
+    studentController.updateStudentGrade(req, res);
+});
 
 export default router;

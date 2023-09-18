@@ -34,6 +34,15 @@ Upon successful completion, users should be able to query the application's endp
 
 
 ### Notes/Hints:
+- You can use the POST route "http://localhost:3000/api/expenses" to create a new expense with the provided sample data for an expense, for example:
+
+{
+    "title": "Lunch at Joe's",
+    "amount": 15.0,
+    "date": "2023-09-17",
+    "isRecurring": false,
+    "tags": ["food", "lunch"]
+} 
 - No need to change the default code, changes are meant to be done in repository file only.
 - Remember to use the MongoDB aggregation pipeline and relevant stages to achieve the desired results.
 - Check the MongoDB documentation for specific syntax and usage of aggregation operators.

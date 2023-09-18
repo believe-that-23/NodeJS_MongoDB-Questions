@@ -13,7 +13,7 @@ Your task is to update the studentRepository class to implement the following me
 
 3. getQualifiedStudentsCount: Adjust the method to determine the count of students who meet specific criteria. Only include students with an age greater than 9, a grade less than or equal to 'B', an assignment titled 'math', and a score of 60 or higher.
 
-4. awardExtraCredit: Modify the method to award additional credit points to a specific student. Use the provided studentId and extraCreditPoints parameters to calculate the updated scores for the student's assignments. Update the database with the new assignment scores, ensuring proper transaction management.
+4. updateStudentGrade: Implement a method to update a student's grade based on their assignment scores. If a student's assignment score is updated with extra credit points, recalculate their grade accordingly. Ensure that this operation is atomic and that the assignment score update and grade recalculation are performed as a single transaction.
 
 ### Expected Output: 
 

@@ -81,36 +81,92 @@ describe('Student Management API', () => {
         expect(response.body).toEqual(mockAggregatedResult[0]); // Check for the specific property value
     });
 
-    it('should award extra credit points to a student', async () => {
+    // it('should award extra credit points to a student', async () => {
 
-        const mockSession = {
-            startTransaction: jest.fn(),
-            commitTransaction: jest.fn(),
-            abortTransaction: jest.fn(),
-            endSession: jest.fn(),
-        };
+    //     const mockSession = {
+    //         startTransaction: jest.fn(),
+    //         commitTransaction: jest.fn(),
+    //         abortTransaction: jest.fn(),
+    //         endSession: jest.fn(),
+    //     };
 
-        mockClient.startSession = jest.fn().mockReturnValue(mockSession);
-        mockClient.close = jest.fn();
-        const extraCreditPoints = 5;
-       
-        // Make a POST request to the route
-        const response = await request(app)
-            .post("/api/student/award-extra-credit")
-            .send({ studentId: createdStudentId, extraCreditPoints });
+    //     mockClient.startSession = jest.fn().mockReturnValue(mockSession);
+    //     mockClient.close = jest.fn();
+    //     const extraCreditPoints = 5;
 
-        expect(mockClient.startSession).toHaveBeenCalled();
-        expect(mockSession.startTransaction).toHaveBeenCalled();
-        expect(mockSession.commitTransaction).toHaveBeenCalled();
-        expect(mockSession.endSession).toHaveBeenCalled();
-        expect(mockClient.close).toHaveBeenCalled();
+    //     // Make a POST request to the route
+    //     const response = await request(app)
+    //         .post("/api/student/award-extra-credit")
+    //         .send({ studentId: createdStudentId, extraCreditPoints });
 
-        // Assert the response status
-        expect(response.status).toBe(201);
+    //     expect(mockClient.startSession).toHaveBeenCalled();
+    //     expect(mockSession.startTransaction).toHaveBeenCalled();
+    //     expect(mockSession.commitTransaction).toHaveBeenCalled();
+    //     expect(mockSession.endSession).toHaveBeenCalled();
+    //     expect(mockClient.close).toHaveBeenCalled();
 
-        // Assert the response message
-        expect(response.text).not.toBe("");
-    });
+    //     // Assert the response status
+    //     expect(response.status).toBe(201);
 
+    //     // Assert the response message
+    //     expect(response.text).not.toBe("");
+    // });
+
+    // it('should update a student\'s grade and assignments with a transaction', async () => {
+    //     // Mock the findOne response
+    //     const mockStudent = {
+    //         _id: 'some-valid-student-id', // Replace with a valid ObjectId
+    //         assignments: [
+    //             { title: 'Math', score: 85 },
+    //             { title: 'Science', score: 75 },
+    //         ],
+    //     };
+    //     mockCollection.findOne.mockResolvedValueOnce(mockStudent); // Use mockCollection here
+
+    //     const mockSession = {
+    //         startTransaction: jest.fn(),
+    //         commitTransaction: jest.fn(),
+    //         abortTransaction: jest.fn(),
+    //         endSession: jest.fn(),
+    //     };
+
+    //     mockClient.startSession = jest.fn().mockReturnValue(mockSession);
+    //     mockClient.close = jest.fn();
+
+    //     // Make a POST request to the route (You can use your actual route here)
+    //     const response = await request(app)
+    //         .post("/api/student/update-student-grade")
+    //         .send({ studentId: createdStudentId, extraCreditPoints: 10 }); // Adjust extra credit points as needed
+
+    //     // Assertions
+    //     expect(mockClient.startSession).toHaveBeenCalled();
+    //     expect(mockSession.startTransaction).toHaveBeenCalled();
+    //     expect(mockSession.commitTransaction).toHaveBeenCalled();
+    //     expect(mockSession.endSession).toHaveBeenCalled();
+    //     expect(mockClient.close).toHaveBeenCalled();
+
+    //     // Assert the response status
+    //     expect(response.status).toBe(200);
+
+    //     // Assert that the response message is not empty
+    //     expect(response.body.message).not.toBe("");
+
+    //     // Additional assertions specific to your application's behavior
+    //     expect(mockCollection).toHaveBeenCalledWith('students'); 
+    // expect(mockCollection.updateOne).toHaveBeenCalledWith(
+    //     { _id: 'some-valid-student-id' }, // Replace with a valid ObjectId
+    //     {
+    //         $set: {
+    //             assignments: [ // Adjust based on your expected updated assignments
+    //                 { title: 'Math', score: 95 }, // Adjust scores based on the extra credit points
+    //                 { title: 'Science', score: 85 }, // Adjust scores based on the extra credit points
+    //             ],
+    //             grade: 'A', // Adjust based on your expected updated grade
+    //         },
+    //     },
+    //     { session: mockSession }
+    // );
+    // Ensure other expected function calls and behaviors are tested here
 });
+
 
