@@ -57,14 +57,14 @@ export default class studentController {
         }
     }
 
-    awardExtraCredit = async (req, res) => {
+    updateStudentGrade = async (req, res) => {
         try {
             const { studentId, extraCreditPoints } = req.body;
-            await this.studentRepository.awardExtraCredit(new ObjectId(studentId), extraCreditPoints);
-            res.status(201).json({ message: 'Extra credit awarded successfully.' });
+            await this.studentRepository.updateStudentGrade(new ObjectId(studentId), extraCreditPoints);
+            res.status(200).json({ message: 'Student grade updated successfully.' });
         } catch (error) {
             console.log(error);
-            res.status(500).json({ error: 'An error occurred while awarding extra credit.' });
+            res.status(500).json({ error: 'An error occurred while updating student grade.' });
         }
     }
 

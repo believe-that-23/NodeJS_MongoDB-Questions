@@ -26,7 +26,7 @@ class studentRepository {
 
     async getQualifiedStudentsCount() {}
 
-    async awardExtraCredit(studentId, extraCreditPoints) {}
+    async updateStudentGrade() {}
 
 };
 
