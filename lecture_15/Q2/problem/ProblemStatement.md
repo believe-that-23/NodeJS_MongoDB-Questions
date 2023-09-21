@@ -11,7 +11,7 @@ You are tasked with building a RESTful API for managing books using Mongoose and
 1. Create a model using the "bookSchema."
 
 2. Implement 'createBook' and 'getOne' book controllers along with their respective 'createBook' and 'getOne' repository functions for the creation of a book and filtering a book by its ID.
-   Note: When creating a new book, the attributes should match those defined in the book schema.
+   Note: When creating a new book, the attributes should match those defined in the book schema. Additionally, ensure that you send a 404 status when the book ID does not exist.
 
 3. The endpoints for creating a book and filtering a book by its ID are provided in the book routes.
 
