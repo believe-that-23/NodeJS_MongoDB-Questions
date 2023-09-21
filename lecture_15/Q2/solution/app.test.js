@@ -24,7 +24,7 @@ describe('Book API Endpoints', () => {
     it('should create a new book', async () => {
       const newBookData = {
         title: 'Sample Book',
-        author: '123456789012345678901234', 
+        author: 'Sample Author', 
         genre: 'Fiction',
         copies: 5,
         availableCopies: 5,
@@ -43,7 +43,7 @@ describe('Book API Endpoints', () => {
     it('should retrieve a book by ID', async () => {
       const bookData = {
         title: 'Sample Book',
-        author: '123456789012345678901234', // Replace with a valid author ID
+        author: '123456789012345678901234',
         genre: 'Fiction',
         copies: 5,
         availableCopies: 5,
@@ -59,7 +59,8 @@ describe('Book API Endpoints', () => {
     });
 
     it('should return 404 if book ID does not exist', async () => {
-      const nonExistentBookId = '123456789012345678901234'; // Replace with a non-existent ID
+      const nonExistentBookId = new mongoose.Types.ObjectId(); // Replace with a non-existent ID
+      console.log(nonExistentBookId);
 
       await request(app)
         .get(`/api/books/${nonExistentBookId}`)
