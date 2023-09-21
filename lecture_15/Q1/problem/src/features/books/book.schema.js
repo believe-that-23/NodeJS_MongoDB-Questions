@@ -1,4 +1,6 @@
-//Write you code here
-// make the necessary imports and create bookSchema
+// Please don't change the pre-written code
+// make the necessary imports for creating book schema named 'bookSchema'
 
-export const bookSchema 
+// Start writing your code here
+
+export default bookSchema;

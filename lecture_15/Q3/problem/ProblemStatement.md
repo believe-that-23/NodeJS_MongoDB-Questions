@@ -1,26 +1,25 @@
 ### Title:
+
 Book Inventory Management System
 
 ## Introduction + Scenario:
+
 In this coding challenge, you are tasked with building a Book Inventory Management System using Mongoose and Express. We have already implemented the create and retrieve functionalities, and now we will proceed to implement other critical functions. This system will allow users to create, retrieve, update, and delete book records, making it essential for efficient book management.
 
 ## Objectives:
 
-1. Create a route to update the availability of a book based on its ID and quantity.
-2. Implement a function to delete a book record by its ID.
-3. Add a route to list books by a specific genre.
+1. Implement the 'listBooksByGenre', 'updateBookAvailability', and 'deleteBook' controller functions along with their respective repository functions in the book repository. These functions should allow for filtering books based on genre, increasing the count of available books, and deleting a book.
+
+Note:
+The endpoints for the above operations are defined in the book routes.
 
 ## Expected Output:
 
-Output should look like: https://files.codingninjas.in/screencast-from-09-13-2023-04-21-29-pm-31079.webm 
+Output should look like: https://files.codingninjas.in/screencast-from-09-13-2023-04-21-29-pm-31079.webm
 
 - Updating book availability should return the updated book details in JSON format.
 - Deleting a book should result in a JSON response confirming the deletion.
 - Listing books by genre should return a JSON array of matching books.
-## Requirements:
-
-- Use Mongoose for database operations.
-- Utilize Express.js for routing.
 
 ## Resources:
 

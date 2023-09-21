@@ -1,7 +1,6 @@
-// write your code here
+// Please don't change the pre-written code
+// Import the necessary modules here
 
-
-// make the necessary imports 
-// complete the function below 
-
-export const connectUsingMongoose = async () => {}
+export const connectUsingMongoose = async () => {
+  // write your code here
+};
