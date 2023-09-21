@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { bookSchema } from './src/features/books/book.schema.js';
+import bookSchema from './src/features/books/book.schema.js';
 import { connectUsingMongoose } from './src/config/mongooseConfig.js';
 
 
