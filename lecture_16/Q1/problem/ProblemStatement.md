@@ -18,7 +18,7 @@ You are tasked with enhancing a Books API application by adding a new feature th
 5. Validate and return a 404 status code if the book with the given bookId does not exist.
 6. Validate and return a 201 status code upon successfully adding a review to a book. For further details, please refer to the provided video link under '# Expected Output'.
 
-## Expected Output:
+## Expected Output: https://files.codingninjas.in/final_16_1-31335.mp4
 
 Output should look like:
 
