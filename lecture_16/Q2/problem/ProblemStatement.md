@@ -28,7 +28,7 @@ To test the routes using Postman, please refer to the provided video link in the
 
 ## Expected Output:
 
-Output should look like:
+Output should look like: https://files.codingninjas.in/lect_16_2-31347.mp4
 
 ## Notes/Hints:
 1. You can use the POST route "http://localhost:3000/api/books" to create a new expense with the provided sample data for an book, for example:
