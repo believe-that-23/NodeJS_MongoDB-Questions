@@ -26,7 +26,7 @@ To test the routes using Postman, please refer to the provided video link in the
 
 ## Expected Output:
 
-Output should look like:
+Output should look like: https://files.codingninjas.in/lec16_3-31363.mp4
 
 ## Notes/Hints:
 1. You can use the POST route "http://localhost:3000/api/books" to create a new expense with the provided sample data for an book, for example:
@@ -35,7 +35,7 @@ Output should look like:
     "author": [],
     "genre": "Fantasy",
     "copies": 8,
-    "availableCopies": 20
+    "availableCopies": 20,
     "reviews": []
 }
 2. Test the functionality using Postman or a similar tool to ensure it works as expected.

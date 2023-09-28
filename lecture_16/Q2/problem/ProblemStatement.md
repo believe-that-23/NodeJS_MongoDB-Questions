@@ -37,7 +37,7 @@ Output should look like: https://files.codingninjas.in/lect_16_2-31347.mp4
     "author": [],
     "genre": "Fantasy",
     "copies": 8,
-    "availableCopies": 20
+    "availableCopies": 20,
     "reviews": []
 }
 2. Test the functionality using Postman or a similar tool to ensure it works as expected.
