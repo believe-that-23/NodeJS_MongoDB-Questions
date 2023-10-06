@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Drawing App</title>
+</head>
+
+<body>
+    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    <input type="color" id="colorPicker" value="#000000">
+    <input type="number" id="brushSize" value="5">
+    <button id="clearButton">Clear</button>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000');
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+        const colorPicker = document.getElementById('colorPicker');
+        const brushSize = document.getElementById('brushSize');
+        const clearButton = document.getElementById('clearButton');
+        let isDrawing = false;
+        let lastX, lastY;
+
+        // Set initial drawing properties
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.lineWidth = brushSize.value;
+
+        // Handle drawing events
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top];
+        });
+
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+        function draw(e) {
+            if (!isDrawing) return;
+
+            const [x, y] = [e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top];
+            ctx.strokeStyle = colorPicker.value;
+            ctx.lineWidth = brushSize.value;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            const drawingData = {
+                x1: lastX,
+                y1: lastY,
+                x2: x,
+                y2: y,
+                color: colorPicker.value,
+                brushSize: brushSize.value,
+            };
+
+            // Emit drawing data to the server
+            socket.emit('draw', drawingData);
+
+            [lastX, lastY] = [x, y];
+        }
+
+        // Clear the canvas
+        clearButton.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            socket.emit('clear');
+        });
+
+        // Listen for drawing updates from the server
+        socket.on('drawing', (data) => {
+            ctx.strokeStyle = data.color;
+            ctx.lineWidth = data.brushSize;
+            ctx.beginPath();
+            ctx.moveTo(data.x1, data.y1);
+            ctx.lineTo(data.x2, data.y2);
+            ctx.stroke();
+        });
+
+        // Listen for the "clear" event from the server
+        socket.on('clear', () => {
+            // Clear the canvas on all clients
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+    </script>
+</body>
+
+</html>
