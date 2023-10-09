@@ -4,7 +4,7 @@ Real-Time Chat Room App with Socket.IO
 
 ### Introduction + Scenario
 
-In this project, you will work on a real-time chat-room application powered by Socket.IO. This application enables multiple users to connect to chat rooms and engage in real-time conversations. Socket.IO facilitates seamless communication between users, providing a dynamic and interactive chat experience. Your task is to enhance and extend the functionality of this chat application.
+In this problem, you will work on a real-time chat-room application powered by Socket.IO. This application enables multiple users to connect to chat rooms and engage in real-time conversations. Socket.IO facilitates seamless communication between users, providing a dynamic and interactive chat experience. Your task is to enhance and extend the functionality of this chat application.
 
 ### Objectives
 
