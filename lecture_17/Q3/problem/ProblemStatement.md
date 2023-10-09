@@ -16,3 +16,4 @@ In your chat room application, you've successfully implemented the message stora
 
 
 ## Expected Output:
+The output should look like: https://files.codingninjas.in/lecture_17_3-31682.mp4
