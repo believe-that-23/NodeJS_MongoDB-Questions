@@ -23,7 +23,7 @@ In this project, you will work on a real-time chat-room application powered by S
 Information on Rooms and related methods: https://socket.io/docs/v3/rooms/
 
 ### Expected Output
-
+The output should look like: https://files.codingninjas.in/lec_17_1-31680.mp4
 
 ### Notes/Hints
 
