@@ -2,14 +2,12 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
-import mongoose from 'mongoose';
-import { connectToDatabase } from './db.config.js';
 import Task from './task.schema.js';
 
 const app = express();
 app.use(cors());
 
-const server = http.createServer(app);
+export const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
@@ -74,7 +72,4 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(3000, () => {
-    console.log('Server is running on port 3000');
-    connectToDatabase();
-});
+
