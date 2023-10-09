@@ -16,3 +16,5 @@ In this challenge, you will implement a real-time todo application where multipl
 5. Implement client-side Socket.IO listeners to handle incoming "addTask" and "deleteTask" events.
 
 ## Expected Output:
+
+The output should look like: https://files.codingninjas.in/lecture_17_4-31684.mp4
