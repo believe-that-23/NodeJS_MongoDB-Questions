@@ -15,3 +15,5 @@ Objectives:
 - timestamp: The timestamp of the message 
 
 Expected Output:
+
+The output should look like: https://files.codingninjas.in/lec_17_2-31681.mp4
