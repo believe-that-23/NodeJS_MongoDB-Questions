@@ -1,0 +1,1 @@
+import mongoose from"mongoose";const baseUrl=process.env.MONGODB||"0.0.0.0:27017",connectUsingMongoose=async()=>{try{await mongoose.connect(`mongodb://${baseUrl}/book`,{useNewUrlParser:!0,useUnifiedTopology:!0}),console.log("MongoDB connected using mongoose")}catch(o){console.log(o)}};export{connectUsingMongoose};
