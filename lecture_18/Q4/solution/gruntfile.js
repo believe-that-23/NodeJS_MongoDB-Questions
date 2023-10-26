@@ -5,8 +5,8 @@ module.exports = function (grunt) {
         options: {
           patterns: [
             {
-              match: /foo/g,
-              replacement: 'bar'
+              match: /ninjacoding.com/g,
+              replacement: 'codingninjas.com'
             }
           ]
         },

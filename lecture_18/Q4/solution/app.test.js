@@ -9,7 +9,7 @@ describe('Grunt Configuration', () => {
     const originalContent = fs.readFileSync(indexHtmlPath, 'utf8');
 
     // Modify index.html content for testing
-    fs.writeFileSync(indexHtmlPath, 'This is a test: foo');
+    fs.writeFileSync(indexHtmlPath, 'This is a test: ninjacoding.com');
 
     // Execute the Grunt task
     exec('npx grunt default', (error, stdout, stderr) => {
@@ -30,7 +30,7 @@ describe('Grunt Configuration', () => {
     const outputFile = path.join(__dirname, 'build', 'index.html');
     const outputContent = fs.readFileSync(outputFile, 'utf8');
 
-    expect(outputContent).not.toContain('foo');
-    expect(outputContent).toContain('bar');
+    expect(outputContent).not.toContain('ninjacoding.com');
+    expect(outputContent).toContain('codingninjas.com');
   });
 });
