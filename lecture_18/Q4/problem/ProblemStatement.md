@@ -33,4 +33,3 @@ Grunt Plugins: https://gruntjs.com/plugins
 
 - The folder structure should remain unchanged. 
 
-
