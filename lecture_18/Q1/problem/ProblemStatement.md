@@ -1,7 +1,7 @@
 ## Title: Grunt Task Runner Challenge 
 
 ### Introduction:
-In this coding challenge, you will be tasked with correcting a misconfigured Gruntfile for a web development project. Grunt is a widely used JavaScript task runner that automates various development tasks. In this challenge, you will focus on fixing a Gruntfile that is supposed to minify CSS and JavaScript files but is currently not functioning as intended.m
+In this coding challenge, your objective is to rectify a misconfigured Gruntfile in a web development project. The Gruntfile is meant to minify CSS and JavaScript files, but it is currently not operating as intended.
 
 ### Objectives:
 
